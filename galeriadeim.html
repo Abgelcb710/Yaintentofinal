@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        section {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        section img {
+            width: 0;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: .8;
+            transition: .5s ease;
+        }
+        section img:hover {
+            cursor: crosshair;
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <!-- You can replace these URLs with the URLs of your own images -->
+        <img src="https://i0.wp.com/www.pcmrace.com/wp-content/uploads/2015/04/mBtqGsN.jpg?resize=750%2C400&ssl=1" alt="Random image 1">
+        <img src="https://www.gamespot.com/a/uploads/original/1365/13658182/2559799-bak_sshot075.jpg" alt="Random image 2">
+        <img src="https://w0.peakpx.com/wallpaper/535/110/HD-wallpaper-arthur-morgan-red-dead-redemption-2.jpg" alt="Random image 3">
+        <img src="https://4kwallpapers.com/images/walls/thumbs_3t/3963.jpg" alt="Random image 4">
+        <img src="https://assets.vg247.com/current//2018/06/resident_evil_2_e3_2018_new-8.jpg" alt="Random image 5">
+    </section>
+</body>
+</html>

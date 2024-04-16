@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+      height: 150px;
+      background-image: url('https://logincdn.msftauth.net/shared/5/images/61_c95ca8771b79ae7d0ae9.png');
+      background-size: cover;
+      margin-top: 75px;
+    }
+
+    body {
+      background-color: #008000;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      width: 600px;
+      height: 550px;
+      background-color: #FFFFFF;
+      color: #000; /* Change the color of the form text to black */
+      padding: 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centrar el formulario horizontalmente */
+      margin-top: 20px; /* Agrega esta línea para bajar el formulario */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 5px #000000;
+      color: #000; /* Change the color of the form input labels to black */
+    }
+
+    button[type="button"] {
+      background-color: #003059; 
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: absolute;
+      top: 70%;
+      transform: translateY(-100%);
+      right: 20px;
+    }
+
+    button[type="button"]:hover {
+      background-color: #002845; /* Cambia el color de fondo al hover a un tono más oscuro */
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .password-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .gamer-font {
+      font-family: 'VT323', monospace;
+    }
+
+    .smaller-image {
+      width: 200px;
+      height: 200px;
+    }
+
+    h1 {
+      color: #000; 
+      font-size:24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+  <form id="loginForm">
+    <h1>Iniciar Sesión</h1>
+    <label for="username">Correo electrónico o Usuario:</label><input type="text" id="username" name="username" required>
+
+    <div class="password-container">
+      <label for="password" class="gamer-font">Contraseña:</label><input type="password" id="password" name="password" required>
+      <div class="error" id="passwordError"></div>
+    </div><button type="button" id="nextButton">SIGUIENTE</button>
+  </form>
+
+  <script>
+    const username = 'Angelcb720';
+    const password = '1234';
+    const attempts = localStorage.getItem('attempts') || 0;
+
+    if (attempts === 3) {
+      alert('Too many attempts. Page will close.');
+      window.location.href = '/';
+    }
+
+   document.getElementById('nextButton').addEventListener('click', function(event) {
+      event.preventDefault();
+
+      const formUsername = document.getElementById('username').value;
+      const formPassword = document.getElementById('password').value;
+      const passwordError= document.getElementById('passwordError');
+
+      if (formUsername === username && formPassword === password) {
+        // Redirect to galeriadeim.html if credentials are correct
+        window.location.href = 'galeriadeim.html';
+      } else {
+        // Increment attempts and show error if credentials are incorrect
+        localStorage.setItem('attempts', parseInt(attempts) + 1);
+        passwordError.textContent = 'Usuario o Contraseña incorrecta ';
+        passwordError.style.display = 'block';
+      }
+    });
+ </script>
+</body>
+</html>
